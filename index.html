@@ -4,1076 +4,866 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b0c10">
-<title>Grand Theft Auto VII | PC Download</title>
+<title>GTA 7 PC Download | VaultDrive</title>
+
 <style>
-:root{
-  --bg:#0b0c10;
-  --panel:#15171d;
-  --panel2:#1b1e26;
-  --line:#2a2d36;
-  --text:#f6f6f8;
-  --muted:#a2a6b2;
-  --accent:#f2a361;
-  --pink:#d66c9e;
-  --green:#76d99d;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--bg);color:var(--text);
-  font:14px/1.65 "Segoe UI",Arial,sans-serif;
-}
-button,input{font:inherit}
-button{cursor:pointer}
-a{color:inherit;text-decoration:none}
-a:hover{color:var(--accent)}
-.hidden{display:none!important}
-.muted{color:var(--muted)}
-.container{width:min(1180px,calc(100% - 44px));margin:auto}
-
-/* HEADER */
-
-header{
-  height:76px;
-  background:#101116f5;
-  border-bottom:1px solid var(--line);
-  position:sticky;top:0;z-index:30;
-  backdrop-filter:blur(18px);
-  transform:translateY(0);
-  transition:transform .28s ease;
-}
-header.hide{transform:translateY(-110%)}
-.header-inner{height:100%;display:flex;align-items:center;gap:35px}
-.logo{font-weight:950;letter-spacing:-1px;font-size:22px;white-space:nowrap}
-.logo small{font-size:12px;color:var(--accent);vertical-align:top}
-nav{display:flex;gap:28px;margin-left:auto}
-nav a{font-size:12px;font-weight:750;letter-spacing:.8px;color:#c6c7cf}
-.header-icon{
-  border:1px solid var(--line);background:#1e2028;color:#fff;
-  border-radius:8px;padding:9px 13px
+:root {
+  --bg: #090b10;
+  --panel: #11151d;
+  --panel2: #171c26;
+  --line: #272e3c;
+  --text: #edf1f7;
+  --muted: #8792a5;
+  --green: #62e9a5;
+  --green-dark: #113a2a;
+  --yellow: #edbd67;
 }
 
-/* HERO */
+* { box-sizing: border-box; }
 
-.hero{
-  min-height:560px;position:relative;overflow:hidden;
-  background:
-    linear-gradient(90deg,#090a0ef5 0%,#090a0ed9 34%,#090a0e65 72%,#090a0e44),
-    url("gta7.png") center 42%/cover;
-  border-bottom:1px solid var(--line);
-}
-.hero:after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(0deg,#0b0c10,transparent 50%);
-}
-.hero-content{position:relative;z-index:1;padding-top:125px;padding-bottom:95px}
-.eyebrow{color:#ffbd85;letter-spacing:2.5px;font-size:11px;font-weight:850}
-h1{
-  font-size:clamp(56px,9vw,105px);
-  line-height:.95;letter-spacing:-5px;margin:22px 0;
-}
-h1 span{color:var(--accent)}
-.hero p{max-width:490px;color:#dedee5;font-size:16px}
-.hero-tags,.badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
-.chip{
-  border:1px solid #ffffff35;background:#101116bb;
-  border-radius:6px;padding:7px 12px;font-size:11px;font-weight:750;
-}
-.hero-buttons{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-
-/* BUTTONS */
-
-.primary,.secondary{
-  border-radius:7px;border:0;padding:15px 25px;
-  font-size:12px;letter-spacing:.65px;font-weight:850;
-  transition:background .2s,filter .2s,transform .2s;
-  display:inline-block;text-align:center;
-}
-.primary{color:#1c120e;background:linear-gradient(110deg,#ffbf81,#ed866b)}
-.primary:hover{filter:brightness(1.1);transform:translateY(-1px);color:#1c120e}
-.secondary{
-  background:#252832;color:#fff;border:1px solid #373b45;
-}
-.secondary:hover{background:#343844;color:#fff}
-button:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
-
-/* LAYOUT */
-
-.section{padding:52px 0}
-.section-title{font-size:24px;font-weight:850;letter-spacing:-.6px;margin:0 0 8px}
-.section-sub{color:var(--muted);margin:0 0 25px}
-.main-grid{
-  display:grid;grid-template-columns:minmax(0,1.6fr) minmax(320px,1fr);gap:24px;
-}
-.panel{
-  background:var(--panel);border:1px solid var(--line);
-  border-radius:12px;overflow:hidden;
-}
-.pad{padding:27px}
-.cover{
-  height:295px;background:url("gta7.png") center 47%/cover;position:relative;
-}
-.cover:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,#15171d,transparent 65%);
-}
-.cover-label{
-  position:absolute;z-index:1;bottom:22px;left:26px;
-  font-size:12px;font-weight:800;letter-spacing:2px;
-}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.field-name{
-  font-size:10px;color:#9297a3;letter-spacing:1.3px;font-weight:750;
-}
-.field-value{font-size:14px;font-weight:750;margin-top:3px}
-.divider{height:1px;background:var(--line);margin:24px 0}
-
-/* DOWNLOAD */
-
-.download-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.status-pill{
-  font-size:10px;font-weight:850;padding:6px 10px;border-radius:5px;
-  background:#233a2c;color:#92e5ac;
-}
-.download-btn{width:100%;margin-top:25px;padding:18px}
-.help-note{color:#858b97;font-size:11px;text-align:center;margin-top:13px}
-.progress-top{display:flex;justify-content:space-between;gap:15px;align-items:center}
-.progress-top h3{font-size:17px;margin:0}
-.percent{font-weight:900;font-size:26px;font-variant-numeric:tabular-nums}
-.progress-track{
-  height:9px;background:#30333c;border-radius:20px;
-  overflow:hidden;margin:20px 0;
-}
-.progress-bar{
-  height:100%;width:0;
-  background:linear-gradient(90deg,#df659e,#ffbd7c);
-  transition:width .65s ease;
-}
-.progress-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.progress-stats strong{
-  display:block;font-size:12px;margin-top:5px;
-  font-variant-numeric:tabular-nums;
-}
-.progress-actions{display:flex;gap:10px;margin-top:25px}
-.progress-actions button{flex:1}
-.status-line{
-  color:#a7aab5;font-size:11px;
-  margin-top:19px;overflow-wrap:anywhere;min-height:34px;
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: Inter, system-ui, Arial, sans-serif;
+  font-size: 14px;
 }
 
-/* TABS AND CONTENT */
+button { font: inherit; }
 
-.tabs{
-  display:flex;gap:27px;border-bottom:1px solid var(--line);
-  margin-top:40px;overflow-x:auto;
-}
-.tab{
-  padding:14px 3px;background:none;border:0;
-  border-bottom:2px solid transparent;color:#979aa5;
-  font-weight:750;white-space:nowrap;
-}
-.tab.active{border-color:var(--accent);color:#fff}
-.tab-page{padding-top:28px}
-.description{max-width:870px;color:#b4b6c1;line-height:1.9}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px}
-.feature{
-  border:1px solid var(--line);border-radius:9px;
-  background:var(--panel);padding:23px;
-}
-.feature b{display:block;margin-bottom:9px}
-.feature p{font-size:12px;color:var(--muted);margin:0}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.gallery-item{
-  height:190px;border-radius:9px;background-image:url("gta7.png");
-  background-size:cover;border:1px solid var(--line);
-}
-.gallery-item:nth-child(1){background-position:15% 36%}
-.gallery-item:nth-child(2){background-position:80% 28%}
-.gallery-item:nth-child(3){background-position:50% 85%}
-.spec-columns{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.spec-box{
-  background:var(--panel);border:1px solid var(--line);
-  border-radius:10px;padding:27px;
-}
-.spec-box h3{margin-top:0}
-.spec-row{
-  display:flex;justify-content:space-between;gap:18px;
-  border-bottom:1px solid var(--line);padding:14px 0;font-size:12px;
-}
-.spec-row:last-child{border:0}
-.spec-row span{color:#9296a3}
-.spec-row strong{text-align:right;font-weight:700}
-.faq-item{border-bottom:1px solid var(--line);padding:12px 0}
-.faq-item summary{cursor:pointer;font-weight:750;padding:8px 0}
-.faq-item p{color:var(--muted)}
-
-/* ASSISTANCE */
-
-.assistance-container{
-  min-height:260px;display:flex;justify-content:center;
-  align-items:center;text-align:center;padding:30px;
-}
-.assistance-button{
-  font-size:15px;min-width:230px;padding:20px 35px;
-}
-.no-text{
-  font-size:clamp(90px,16vw,180px);
-  line-height:1;font-weight:950;letter-spacing:-9px;margin:0;
-}
-.no-reveal{animation:noAppear .25s ease-out both}
-@keyframes noAppear{
-  from{opacity:0;transform:scale(.85)}
-  to{opacity:1;transform:scale(1)}
+header {
+  height: 72px;
+  background: #0e1118;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(24px, calc((100vw - 1080px) / 2));
 }
 
-/* FOOTER */
-
-footer{
-  background:#101116;border-top:1px solid var(--line);
-  margin-top:80px;padding:55px 0 25px;
-}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}
-.footer-links{display:flex;flex-direction:column;gap:12px}
-.footer-links b{font-size:11px;letter-spacing:1.5px;margin-bottom:8px}
-.footer-links button{
-  background:none;border:0;color:var(--muted);
-  text-align:left;padding:0;font-size:12px;
-}
-.footer-links button:hover{color:#fff}
-.footer-bottom{
-  border-top:1px solid var(--line);margin-top:40px;
-  padding-top:23px;display:flex;justify-content:space-between;
-  gap:20px;font-size:11px;color:#858994;
+.logo {
+  font-size: 23px;
+  font-weight: 850;
+  letter-spacing: -1px;
 }
 
-/* MODALS */
+.logo span { color: var(--green); }
 
-.overlay{
-  position:fixed;inset:0;z-index:100;background:#000b;
-  backdrop-filter:blur(8px);display:flex;
-  align-items:center;justify-content:center;padding:20px;
-}
-.modal{
-  width:min(660px,100%);max-height:85vh;overflow:auto;
-  background:#1c1e26;border:1px solid #393c48;
-  border-radius:13px;padding:33px;box-shadow:0 30px 90px #0008;
-}
-.modal h2{margin:0 0 12px}
-.modal h3{font-size:15px;margin:25px 0 8px}
-.modal p,.modal li{color:#b4b8c4;font-size:13px;line-height:1.9}
-.modal .primary{margin-top:20px}
-.error-icon{
-  height:50px;width:50px;display:grid;place-items:center;
-  background:#552832;color:#ff9ca6;font-size:27px;
-  border-radius:9px;margin-bottom:20px;
-}
-.error-code{
-  background:#101116;border:1px solid var(--line);
-  border-radius:7px;padding:17px;color:#ff9ba9;
-  font:12px/1.9 Consolas,monospace;
-  white-space:pre-wrap;overflow-wrap:anywhere;
+.header-right {
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* MOBILE */
+.online-dot {
+  background: var(--green);
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #62e9a580;
+}
 
-@media(max-width:850px){
-  nav{display:none}
-  .main-grid,.spec-columns{grid-template-columns:1fr}
-  .hero{min-height:480px}
-  .hero-content{padding-top:100px}
-  .features{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr 1fr}
+.container {
+  width: min(100% - 36px, 1040px);
+  margin: 45px auto;
 }
-@media(max-width:520px){
-  .hero{background-position:55% center}
-  h1{letter-spacing:-3px}
-  .header-inner{gap:10px}
-  .header-icon{margin-left:auto}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .footer-grid>div:first-child{grid-column:1/-1}
-  .footer-bottom{flex-direction:column}
-  .gallery{grid-template-columns:1fr}
-  .progress-stats{grid-template-columns:1fr 1fr}
-  .pad{padding:20px}
+
+.breadcrumb {
+  color: var(--muted);
+  margin-bottom: 24px;
+  font-size: 12px;
 }
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+
+.breadcrumb span { color: var(--green); }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.panel-content { padding: 26px; }
+
+.file-top {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.file-icon {
+  height: 88px;
+  width: 78px;
+  border-radius: 12px;
+  background: #253b34;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 22px;
+  flex-shrink: 0;
+  border: 1px solid #365c48;
+}
+
+h1 {
+  font-size: 23px;
+  margin: 0 0 9px;
+  overflow-wrap: anywhere;
+}
+
+.sub { color: var(--muted); font-size: 13px; }
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.tag {
+  background: #1d2630;
+  color: #aebacf;
+  border-radius: 5px;
+  padding: 6px 9px;
+  font-size: 11px;
+}
+
+.tag.green {
+  background: var(--green-dark);
+  color: var(--green);
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+  margin: 25px 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 750;
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.info-row:last-child { border: none; }
+.info-label { color: var(--muted); }
+.info-value { text-align: right; }
+
+.download-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 750;
+  font-size: 16px;
+  margin-bottom: 9px;
+}
+
+.muted { color: var(--muted); line-height: 1.7; }
+
+.download-button {
+  margin-top: 21px;
+  width: 100%;
+  padding: 17px;
+  background: var(--green);
+  color: #062116;
+  border: 0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 850;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.download-button:hover:not(:disabled) {
+  background: #8affc2;
+  transform: translateY(-1px);
+}
+
+.download-button:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+
+.small-print {
+  color: #6d788c;
+  font-size: 11px;
+  margin-top: 17px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.security {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--green);
+  padding: 14px;
+  background: #10281e;
+  border: 1px solid #23533b;
+  border-radius: 8px;
+  margin-top: 19px;
+  font-size: 12px;
+}
+
+.promo {
+  padding: 20px;
+  background: linear-gradient(140deg,#1b2440,#121927);
+  border: 1px solid #354460;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.promo h3 { margin-top: 0; }
+.promo p { color: #a0acc0; line-height: 1.7; }
+
+.promo button {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: #cedbf0;
+  border: 1px solid #53617c;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.progress-area {
+  display: none;
+  margin-top: 24px;
+}
+
+.progress-track {
+  height: 9px;
+  background: #252d39;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 13px 0 10px;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg,#228e60,#69f4ae);
+  height: 100%;
+  width: 0;
+  transition: width .6s ease;
+}
+
+.progress-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status { margin-top: 12px; font-size: 12px; }
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 29px 20px;
+  text-align: center;
+  color: #687387;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.footer a {
+  color: #98a3b6;
+  text-decoration: none;
+  margin: 0 9px;
+}
+
+.footer a:hover { color: white; }
+
+dialog {
+  max-width: 460px;
+  width: calc(100% - 32px);
+  background: #151a24;
+  color: white;
+  border: 1px solid #364154;
+  border-radius: 12px;
+  padding: 27px;
+}
+
+dialog::backdrop { background: #000b; }
+
+dialog p {
+  color: #abb6c8;
+  line-height: 1.8;
+}
+
+.close-dialog {
+  background: var(--green);
+  border: 0;
+  padding: 12px 22px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 750;
+}
+
+@media(max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  .file-top { align-items: flex-start; }
+  h1 { font-size: 19px; }
+  .container { margin-top: 25px; }
+  .panel-content { padding: 20px; }
+  .header-right { display: none; }
 }
 </style>
 </head>
+
 <body>
 
-<header id="siteHeader">
-  <div class="container header-inner">
-    <div class="logo">GRAND THEFT AUTO <small>VII</small></div>
-    <nav>
-      <a href="#overview">OVERVIEW</a>
-      <a href="#download">DOWNLOAD</a>
-      <a href="#details">GAME DETAILS</a>
-      <a href="#requirements" onclick="showTab('requirements')">REQUIREMENTS</a>
-      <a href="#support">ASSISTANCE</a>
-    </nav>
-    <button class="header-icon" aria-label="About website" onclick="openModal('about')">☰</button>
+<header>
+  <div class="logo">vault<span>drive.</span></div>
+  <div class="header-right">
+    <div class="online-dot"></div>
+    FILE NETWORK ONLINE
   </div>
 </header>
 
-<section class="hero" id="overview">
-  <div class="container hero-content">
-    <div class="eyebrow">THE NEXT CHAPTER</div>
-    <h1>GRAND<br>THEFT<br>AUTO <span>VII</span></h1>
-    <p>
-      A new city. New opportunities. No limits.
-      Explore the next generation of open-world entertainment.
-    </p>
-    <div class="hero-tags">
-      <span class="chip">OPEN WORLD</span>
-      <span class="chip">ACTION & ADVENTURE</span>
-      <span class="chip">WINDOWS PC</span>
-    </div>
-    <div class="hero-buttons">
-      <a class="primary" href="#download">DOWNLOAD FOR PC</a>
-      <a class="secondary" href="#details">EXPLORE GAME</a>
-    </div>
-  </div>
-</section>
-
 <main class="container">
+  <div class="breadcrumb">
+    Home / Public files / Games /
+    <span>GTA7_PC_DOWNLOAD.zip</span>
+  </div>
 
-<section class="section" id="download">
-  <h2 class="section-title">Grand Theft Auto VII</h2>
-  <p class="section-sub">PC Edition · Digital Package · Version 1.0.7</p>
-  <div class="main-grid">
-
-    <div class="panel">
-      <div class="cover">
-        <div class="cover-label">GRAND THEFT AUTO VII</div>
-      </div>
-      <div class="pad">
-        <h3 style="margin-top:0">Game information</h3>
-        <div class="info-grid">
-          <div>
-            <div class="field-name">GENRE</div>
-            <div class="field-value">Open World / Action</div>
-          </div>
-          <div>
-            <div class="field-name">PLATFORM</div>
-            <div class="field-value">Windows 11 (64-bit)</div>
-          </div>
-          <div>
-            <div class="field-name">EDITION</div>
-            <div class="field-value">Standard PC Edition</div>
-          </div>
-          <div>
-            <div class="field-name">LANGUAGE</div>
-            <div class="field-value">English</div>
-          </div>
-        </div>
-        <div class="badges">
-          <span class="chip">Single Player</span>
-          <span class="chip">Controller Support</span>
-          <span class="chip">High Resolution</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel">
-      <div class="pad">
-        <div class="download-head">
-          <h2 style="font-size:20px;margin:0">PC Download</h2>
-          <span class="status-pill">DEMO</span>
-        </div>
-        <p class="muted" style="font-size:12px">Windows PC package information</p>
-        <div class="divider"></div>
-
-        <div class="info-grid">
-          <div>
-            <div class="field-name">PACKAGE SIZE</div>
-            <div class="field-value">187.42 GB</div>
-          </div>
-          <div>
-            <div class="field-name">VERSION</div>
-            <div class="field-value">1.0.7</div>
-          </div>
-          <div>
-            <div class="field-name">PLATFORM</div>
-            <div class="field-value">Windows x64</div>
-          </div>
-          <div>
-            <div class="field-name">COST</div>
-            <div class="field-value" style="color:var(--green)">FREE</div>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div id="startUI">
-          <div class="field-name">PACKAGE CONTENTS</div>
-          <p class="muted" style="font-size:12px">
-            Core game assets, world data, audio, textures,
-            and runtime components.
-          </p>
-          <button class="primary download-btn" onclick="startDownload()">
-            ↓ &nbsp; START DOWNLOAD DEMO
-          </button>
-          <p class="help-note"></p>
-        </div>
-
-        <div id="downloadUI" class="hidden" aria-live="off">
-          <div class="progress-top">
+  <div class="layout">
+    <div>
+      <section class="panel">
+        <div class="panel-content">
+          <div class="file-top">
+            <div class="file-icon">ZIP</div>
             <div>
-              <h3 id="stage">Connecting to server</h3>
-              <div class="muted" id="stageInfo" style="font-size:11px">
-                Preparing package transfer...
+              <h1>GTA7_PC_DOWNLOAD.zip</h1>
+              <div class="sub">Uploaded by anonymous_user_2741</div>
+              <div class="tags">
+                <span class="tag green">PUBLIC FILE</span>
+                <span class="tag">ZIP ARCHIVE</span>
+                <span class="tag">PC / WINDOWS</span>
               </div>
             </div>
-            <strong class="percent" id="percentage">0.0%</strong>
           </div>
 
-          <div class="progress-track">
-            <div class="progress-bar" id="progressBar"
-                 role="progressbar" aria-label="Download progress"
-                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-          </div>
+          <div class="rule"></div>
 
-          <div class="progress-stats">
+          <div class="stats">
             <div>
-              <div class="field-name">DOWNLOADED</div>
-              <strong id="downloaded">0.00 GB</strong>
+              <div class="stat-label">DOWNLOADS</div>
+              <div class="stat-value">16</div>
             </div>
             <div>
-              <div class="field-name">SPEED</div>
-              <strong id="speed">0.0 MB/s</strong>
+              <div class="stat-label">FILE SIZE</div>
+              <div class="stat-value">Variable</div>
             </div>
             <div>
-              <div class="field-name">REMAINING</div>
-              <strong id="eta">Calculating...</strong>
+              <div class="stat-label">ACCESS</div>
+              <div class="stat-value" style="color:var(--green)">
+                Public
+              </div>
             </div>
-          </div>
-
-          <div class="status-line" id="status">Connecting...</div>
-
-          <div class="progress-actions">
-            <button class="secondary" id="pauseBtn" onclick="togglePause()">PAUSE</button>
-            <button class="secondary" onclick="cancelDownload()">CANCEL</button>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-content">
+          <div class="section-title">File information</div>
+
+          <div class="info-row">
+            <div class="info-label">Filename</div>
+            <div class="info-value">GTA7_PC_DOWNLOAD.zip</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">File type</div>
+            <div class="info-value">Compressed archive</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">Uploaded</div>
+            <div class="info-value">Recently</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">Availability</div>
+            <div class="info-value" style="color:var(--green)">
+              Available
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">Mirror</div>
+            <div class="info-value">EU-West-03</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">Password</div>
+            <div class="info-value">Not required</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-content">
+          <div class="section-title">Uploader description</div>
+          <p class="muted">
+            GTA 7 PC download. Files packaged for convenient
+            distribution. Extract the archive and open the
+            included launcher file.
+          </p>
+          <p class="muted">
+            No additional installation utilities are required.
+            Download access provided through the public mirror.
+          </p>
+        </div>
+      </section>
     </div>
 
-  </div>
-</section>
+    <aside>
+      <section class="panel">
+        <div class="panel-content">
+          <div class="download-heading">
+            <span style="color:var(--green)">⬇</span>
+            Download file
+          </div>
 
-<section id="details">
-  <div class="tabs">
-    <button class="tab active" data-tab="about" onclick="showTab('about')">OVERVIEW</button>
-    <button class="tab" data-tab="screenshots" onclick="showTab('screenshots')">SCREENSHOTS</button>
-    <button class="tab" data-tab="requirements" onclick="showTab('requirements')">SYSTEM REQUIREMENTS</button>
-    <button class="tab" data-tab="faq" onclick="showTab('faq')">FAQ</button>
-  </div>
+          <div class="muted">
+            Your file is ready to be prepared for download.
+            Please use the button below.
+          </div>
 
-  <div class="tab-page" id="tab-about">
-    <h2 class="section-title">Welcome to the next generation</h2>
-    <p class="description">
-      Grand Theft Auto VII imagines an expansive open-world
-      experience in a reimagined New York-inspired metropolis.
-      Explore a vibrant city with towering skyscrapers,
-      busy streets, unforgettable characters, and a world
-      that never stands still.
-    </p>
-    <div class="features">
-      <div class="feature">
-        <b>EXPANSIVE OPEN WORLD</b>
-        <p>Explore distinctive neighborhoods, towering landmarks,
-        and a dynamic urban environment.</p>
-      </div>
-      <div class="feature">
-        <b>NEXT-GENERATION VISUALS</b>
-        <p>Experience dramatic lighting, atmospheric environments,
-        and detailed cityscapes.</p>
-      </div>
-      <div class="feature">
-        <b>A NEW STORY</b>
-        <p>Discover a fictional new chapter filled with ambition,
-        opportunity, and unforgettable moments.</p>
-      </div>
-    </div>
-  </div>
+          <button class="download-button" id="downloadBtn">
+            FREE DOWNLOAD
+          </button>
 
-  <div class="tab-page hidden" id="tab-screenshots">
-    <h2 class="section-title">Media Gallery</h2>
-    <p class="section-sub">Artwork previews from the GTA VII concept.</p>
-    <div class="gallery">
-      <div class="gallery-item"></div>
-      <div class="gallery-item"></div>
-      <div class="gallery-item"></div>
-    </div>
-  </div>
+          <div class="progress-area" id="progressArea">
+            <div class="progress-details">
+              <span id="progressTitle">Connecting...</span>
+              <span id="percentage">0%</span>
+            </div>
 
-  <div class="tab-page hidden" id="tab-requirements">
-    <h2 class="section-title" id="requirements">PC System Requirements</h2>
-    <p class="section-sub">Illustrative PC specifications.</p>
-    <div class="spec-columns">
-      <div class="spec-box">
-        <h3>Minimum</h3>
-        <div class="spec-row"><span>OS</span><strong>Windows 11 64-bit</strong></div>
-        <div class="spec-row"><span>CPU</span><strong>AMD Ryzen 5 7600X</strong></div>
-        <div class="spec-row"><span>Memory</span><strong>16 GB RAM</strong></div>
-        <div class="spec-row"><span>Graphics</span><strong>RTX 3060 12 GB</strong></div>
-        <div class="spec-row"><span>Storage</span><strong>220 GB SSD</strong></div>
-        <div class="spec-row"><span>DirectX</span><strong>Version 12</strong></div>
-      </div>
-      <div class="spec-box">
-        <h3>Recommended</h3>
-        <div class="spec-row"><span>OS</span><strong>Windows 11 64-bit</strong></div>
-        <div class="spec-row"><span>CPU</span><strong>AMD Ryzen 9 9900X</strong></div>
-        <div class="spec-row"><span>Memory</span><strong>32 GB RAM</strong></div>
-        <div class="spec-row"><span>Graphics</span><strong>RTX 5090</strong></div>
-        <div class="spec-row"><span>Storage</span><strong>340 GB SSD</strong></div>
-        <div class="spec-row"><span>DirectX</span><strong>Version 12</strong></div>
-      </div>
-    </div>
-  </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
 
-  <div class="tab-page hidden" id="tab-faq">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <details class="faq-item">
-      <summary>What operating systems are supported?</summary>
-      <p>Windows 11 64-bit is the listed target platform.</p>
-    </details>
-    <details class="faq-item">
-      <summary>How large is the package?</summary>
-      <p>The package size is 187.42 GB.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Can I pause or resume?</summary>
-      <p>Yes, the download supports pausing, resuming, and cancellation.</p>
-    </details>
-  </div>
-</section>
+            <div class="progress-details">
+              <span id="speed">Initializing</span>
+              <span id="eta">--</span>
+            </div>
 
-<!-- ASSISTANCE -->
+            <div class="status" id="status"></div>
+          </div>
 
-<section class="section" id="support">
-  <div class="panel">
-    <div class="assistance-container">
-      <div id="assistanceStart">
-        <button class="primary assistance-button" onclick="revealNo()">
-          ASSISTANCE
-        </button>
+          <div class="security">
+            <span>●</span>
+            Encrypted connection · HTTPS
+          </div>
+
+          <div class="small-print">
+            By downloading this file, you agree to the
+            VaultDrive Terms of Service.
+            <br>
+            User-uploaded content is not verified by VaultDrive.
+          </div>
+        </div>
+      </section>
+
+      <div class="promo">
+        <h3>VaultDrive PREMIUM</h3>
+        <p>
+          Skip waiting times, unlock priority mirrors,
+          and get unlimited bandwidth.
+        </p>
+        <button id="premiumBtn">UPGRADE ACCOUNT</button>
       </div>
-      <div id="assistanceAnswer" class="hidden">
-        <h2 class="no-text no-reveal">No.</h2>
-      </div>
-    </div>
+
+      <section class="panel">
+        <div class="panel-content">
+          <div class="section-title">Mirror information</div>
+          <div class="info-row">
+            <span class="info-label">Region</span>
+            <span>Europe</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Status</span>
+            <span style="color:var(--green)">Operational</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Access tier</span>
+            <span>Free</span>
+          </div>
+        </div>
+      </section>
+    </aside>
   </div>
-</section>
 </main>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="logo">GRAND THEFT AUTO <small>VII</small></div>
-        <p class="muted" style="max-width:350px;font-size:12px">
-          An interactive concept exploring open-world gaming
-          and digital distribution.
-        </p>
-      </div>
-      <div class="footer-links">
-        <b>INFORMATION</b>
-        <a href="#overview">Overview</a>
-        <a href="#download">Download</a>
-        <a href="#support">Assistance</a>
-        <button onclick="openModal('about')">About</button>
-      </div>
-      <div class="footer-links">
-        <b>LEGAL</b>
-        <button onclick="openModal('terms')">Terms of Service</button>
-        <button onclick="openModal('privacy')">Privacy Policy</button>
-        <button onclick="openModal('disclaimer')">Disclaimer</button>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 GTA VII Concept.</span>
-      <span>Unofficial project · Not affiliated with Rockstar Games.</span>
-    </div>
+<footer class="footer">
+  <div>
+    <a href="#" data-modal="terms">Terms of Service</a>
+    <a href="#" data-modal="privacy">Privacy Policy</a>
+    <a href="#" data-modal="support">Support Center</a>
+    <a href="#" data-modal="abuse">Report File</a>
   </div>
+  <div>© 2026 VaultDrive. Independent parody file-sharing page.</div>
 </footer>
 
-<!-- ERROR MODAL -->
-
-<div class="overlay hidden" id="errorOverlay" role="dialog" aria-modal="true">
-  <div class="modal">
-    <div class="error-icon">!</div>
-    <h2>Package Verification Failed</h2>
-    <p>
-      The package could not be validated.
-      A required release manifest is missing or invalid.
-      The verification process cannot continue.
-    </p>
-    <div class="error-code" id="errorCode"></div>
-    <button class="primary" style="width:100%" onclick="retryDownload()">
-      RETRY DOWNLOAD
-    </button>
-    <button class="secondary" style="width:100%;margin-top:10px"
-      onclick="closeError()">CLOSE</button>
-  </div>
-</div>
-
-<!-- INFORMATION MODAL -->
-
-<div class="overlay hidden" id="infoOverlay" role="dialog" aria-modal="true">
-  <div class="modal">
-    <h2 id="modalTitle"></h2>
-    <div id="modalBody"></div>
-    <button class="secondary" onclick="closeModal()">CLOSE</button>
-  </div>
-</div>
-
-<template id="termsTemplate">
-  <p>Effective date: November 17, 2026</p>
-  <h3>1. Acceptance of Terms</h3>
-  <p>These Terms govern access to this independently created GTA VII website concept. By using the website, you agree to comply with applicable law and these conditions.</p>
-  <h3>2. Permitted Use</h3>
-  <p>The website is provided for lawful, personal, non-commercial viewing and interaction. Users must not deliberately interfere with its operation.</p>
-  <h3>3. Intellectual Property</h3>
-  <p>Grand Theft Auto, associated trademarks, artwork, and intellectual property belong to their respective owners. No sponsorship, authorization, or endorsement is claimed.</p>
-  <h3>4. Service Availability</h3>
-  <p>The website and its features may be changed, temporarily unavailable, or discontinued without notice.</p>
-  <h3>5. Information Accuracy</h3>
-  <p>Game features, version numbers, package sizes, technical requirements, and release information are illustrative rather than official.</p>
-  <h3>6. Download and Installation</h3>
-  <p>The download interface is an interactive demonstration. Progress indicators, file sizes, transfer speeds, verification stages, and errors are simulated. No playable GTA VII game or installation package is distributed through this website.</p>
-  <h3>7. Privacy and Data Handling</h3>
-  <p>The supplied standalone website does not require registration, payment information, or access to personal files. A hosting provider may separately process network information and access logs.</p>
-  <h3>8. Warranties</h3>
-  <p>The website is provided as-is and as-available to the extent permitted by applicable law. Mandatory consumer rights remain unaffected.</p>
-  <h3>9. Limitation of Liability</h3>
-  <p>To the extent permitted by law, the operator does not guarantee uninterrupted availability or suitability for a particular purpose. Nothing excludes liability that cannot legally be excluded.</p>
-  <h3>10. Third-Party Services</h3>
-  <p>Third-party services have their own terms and privacy policies. This website is independent from Rockstar Games and Take-Two Interactive.</p>
-  <h3>11. Changes</h3>
-  <p>These Terms may be revised to reflect changes in the website's operation or features.</p>
-  <h3>12. Applicable Law</h3>
-  <p>Mandatory applicable laws and consumer protections remain in force. Legally required operator contact information should be included before public deployment.</p>
-</template>
-
-<template id="privacyTemplate">
-  <h3>1. Overview</h3>
-  <p>This notice describes the standalone website and its interactive features.</p>
-  <h3>2. Information Collected</h3>
-  <p>The supplied HTML does not collect names, email addresses, passwords, or payment information.</p>
-  <h3>3. Local Processing</h3>
-  <p>Download progress is generated locally in the browser using JavaScript.</p>
-  <h3>4. Cookies</h3>
-  <p>The supplied version does not use tracking cookies or browser local storage for analytics.</p>
-  <h3>5. Hosting</h3>
-  <p>A hosting provider may process IP addresses and connection logs. If the website is published, this notice must be updated to accurately describe actual data processing and applicable privacy rights.</p>
-  <h3>6. Your Rights</h3>
-  <p>Applicable privacy laws may provide rights of access, correction, erasure, and objection.</p>
-</template>
-
-<template id="aboutTemplate">
-  <h3>About</h3>
-  <p>An interactive GTA VII themed website concept featuring game information and a fictional PC download demonstration.</p>
-  <p>This project is independent and is not operated by Rockstar Games or Take-Two Interactive.</p>
-</template>
-
-<template id="disclaimerTemplate">
-  <p>Grand Theft Auto and related trademarks belong to their respective owners.</p>
-  <p>This website is an unofficial creative concept. The download functionality is simulated and no official game software is provided.</p>
-</template>
+<dialog id="modal">
+  <h2 id="modalTitle"></h2>
+  <p id="modalText"></p>
+  <button class="close-dialog" id="closeModal">Close</button>
+</dialog>
 
 <script>
 "use strict";
 
-const $ = id => document.getElementById(id);
+const button = document.getElementById("downloadBtn");
+const area = document.getElementById("progressArea");
+const fill = document.getElementById("progressFill");
+const percentage = document.getElementById("percentage");
+const progressTitle = document.getElementById("progressTitle");
+const speed = document.getElementById("speed");
+const eta = document.getElementById("eta");
+const status = document.getElementById("status");
 
-/* HEADER */
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalText = document.getElementById("modalText");
 
-const siteHeader = $("siteHeader");
-let lastScrollY = window.scrollY;
-
-window.addEventListener("scroll", () => {
-  const current = window.scrollY;
-  const difference = current - lastScrollY;
-
-  if (current < 80) {
-    siteHeader.classList.remove("hide");
-  } else if (difference > 3) {
-    siteHeader.classList.add("hide");
-  } else if (difference < -3) {
-    siteHeader.classList.remove("hide");
+const messages = {
+  terms: {
+    title: "Terms of Service",
+    text: "This is a fictional file-hosting website made as a harmless prank. No game software is distributed. All downloaded content is a Rickroll surprise. Downloads are created locally in your browser."
+  },
+  privacy: {
+    title: "Privacy Policy",
+    text: "This static website does not collect personal information or upload files to a server. The archive is generated in your browser. Your web host may maintain ordinary server logs."
+  },
+  support: {
+    title: "Support Center",
+    text: "No."
+  },
+  abuse: {
+    title: "Report File",
+    text: "This website distributes a harmless joke archive, not an actual copy of GTA 7. No report submission service is connected."
+  },
+  premium: {
+    title: "Premium unavailable",
+    text: "Premium registration is currently unavailable. Free download access remains available."
   }
-
-  lastScrollY = current;
-}, {passive:true});
-
-/* TABS */
-
-function showTab(name) {
-  document.querySelectorAll(".tab").forEach(tab => {
-    tab.classList.toggle("active", tab.dataset.tab === name);
-  });
-  document.querySelectorAll(".tab-page").forEach(page => {
-    page.classList.toggle("hidden", page.id !== "tab-" + name);
-  });
-}
-
-/* ASSISTANCE */
-
-function revealNo() {
-  $("assistanceStart").classList.add("hidden");
-  $("assistanceAnswer").classList.remove("hidden");
-}
-
-/* SIMULATED DOWNLOAD ENGINE */
-
-const TOTAL_GB = 187.42;
-const TOTAL_MB = TOTAL_GB * 1024;
-
-// Initial approximate transfer speed.
-// Values are fictional; displayed figures remain internally consistent.
-const START_SPEED = 640;
-const MIN_SPEED = 22;
-const MAX_SPEED = 1400;
-
-let running = false;
-let paused = false;
-let verifying = false;
-let attempts = 0;
-
-let downloadedMB = 0;
-let actualSpeed = 0;
-let targetSpeed = START_SPEED;
-let shownSpeed = 0;
-let smoothedSpeed = START_SPEED;
-
-let lastTick = 0;
-let nextDisplay = 0;
-let nextSpeedChange = 0;
-let stallUntil = 0;
-let verifyStarted = 0;
-let verifyDuration = 16000;
-let animationId = null;
-let state = "idle";
-let simulationStart = 0;
-
-function random(min,max) {
-  return min + Math.random() * (max-min);
-}
-
-function formatTime(seconds) {
-  if (!Number.isFinite(seconds)) return "Calculating...";
-  const total = Math.max(0,Math.ceil(seconds));
-  const hours = Math.floor(total/3600);
-  const minutes = Math.floor((total%3600)/60);
-  const secs = total%60;
-  if (hours) {
-    return hours+":"+String(minutes).padStart(2,"0")+":"+
-      String(secs).padStart(2,"0");
-  }
-  return minutes+":"+String(secs).padStart(2,"0");
-}
-
-function startDownload() {
-  if (animationId !== null) cancelAnimationFrame(animationId);
-
-  attempts++;
-  running = true;
-  paused = false;
-  verifying = false;
-  state = "connecting";
-
-  downloadedMB = 0;
-  actualSpeed = 0;
-  targetSpeed = START_SPEED;
-  shownSpeed = 0;
-  smoothedSpeed = START_SPEED;
-
-  simulationStart = performance.now();
-  lastTick = simulationStart;
-  nextDisplay = simulationStart;
-  nextSpeedChange = simulationStart+random(1500,3200);
-  stallUntil = 0;
-  verifyStarted = 0;
-
-  $("startUI").classList.add("hidden");
-  $("downloadUI").classList.remove("hidden");
-  $("errorOverlay").classList.add("hidden");
-  $("pauseBtn").disabled = false;
-  $("pauseBtn").textContent = "PAUSE";
-  $("progressBar").style.transition = "none";
-  $("progressBar").style.width = "0%";
-
-  renderDownload(simulationStart);
-  animationId = requestAnimationFrame(tickDownload);
-}
-
-function tickDownload(now) {
-  if (!running) return;
-
-  const dt = Math.min(0.15,Math.max(0,(now-lastTick)/1000));
-  lastTick = now;
-
-  if (!paused) {
-    if (state === "connecting") {
-      actualSpeed = 0;
-      if (now-simulationStart > 2800) {
-        state = "downloading";
-        nextSpeedChange = now+random(900,2400);
-      }
-    } else if (state === "downloading") {
-      if (now >= stallUntil && now >= nextSpeedChange) {
-        // Transfer speed changes in uneven bursts.
-        const roll = Math.random();
-
-        if (roll < 0.12) {
-          targetSpeed = random(25,105);
-          stallUntil = now+random(1800,4500);
-        } else if (roll < 0.35) {
-          targetSpeed = random(130,350);
-        } else if (roll < 0.80) {
-          targetSpeed = random(420,820);
-        } else {
-          targetSpeed = random(850,1200);
-        }
-
-        nextSpeedChange = now+random(1500,4800);
-      }
-
-      if (now < stallUntil) {
-        targetSpeed = 0;
-      }
-
-      // Gradual acceleration and deceleration instead of instant jumps.
-      const factor = 1-Math.exp(-dt*1.3);
-      actualSpeed += (targetSpeed-actualSpeed)*factor;
-      actualSpeed = Math.max(0,Math.min(MAX_SPEED,actualSpeed));
-
-      const added = actualSpeed*dt;
-      downloadedMB = Math.min(TOTAL_MB,downloadedMB+added);
-
-      // Running average stabilizes the ETA while allowing jumps.
-      if (actualSpeed > 0) {
-        smoothedSpeed += (actualSpeed-smoothedSpeed) *
-          (1-Math.exp(-dt*0.13));
-      }
-
-      if (downloadedMB >= TOTAL_MB) {
-        downloadedMB = TOTAL_MB;
-        state = "verifying";
-        verifying = true;
-        verifyStarted = now;
-        verifyDuration = random(14000,24000);
-        actualSpeed = 0;
-        shownSpeed = 0;
-      }
-    } else if (state === "verifying") {
-      if (now-verifyStarted >= verifyDuration) {
-        failDownload();
-        return;
-      }
-    }
-  }
-
-  // UI refreshes at irregular, slower intervals.
-  if (now >= nextDisplay) {
-    renderDownload(now);
-    nextDisplay = now+random(550,1550);
-  }
-
-  animationId = requestAnimationFrame(tickDownload);
-}
-
-function renderDownload(now) {
-  const fraction = downloadedMB/TOTAL_MB;
-  const progress = verifying
-    ? Math.min(99.9,99.4+((now-verifyStarted)/verifyDuration)*0.5)
-    : Math.min(99.4,fraction*99.4);
-
-  $("progressBar").style.transition = ".65s ease";
-  $("progressBar").style.width = Math.max(0,progress)+"%";
-  $("progressBar").setAttribute("aria-valuenow",progress.toFixed(1));
-  $("percentage").textContent = progress.toFixed(1)+"%";
-  $("downloaded").textContent =
-    (downloadedMB/1024).toFixed(2)+" / "+TOTAL_GB.toFixed(2)+" GB";
-
-  if (paused) {
-    $("stage").textContent = "Download paused";
-    $("stageInfo").textContent = "Transfer suspended";
-    $("speed").textContent = "0.0 MB/s";
-    $("status").textContent = "Waiting for transfer to resume...";
-    return;
-  }
-
-  if (state === "connecting") {
-    $("stage").textContent = "Connecting to server";
-    $("stageInfo").textContent = "Establishing connection...";
-    $("speed").textContent = "0.0 MB/s";
-    $("eta").textContent = "Calculating...";
-    $("status").textContent = "Initializing package transfer...";
-    return;
-  }
-
-  if (verifying) {
-    $("stage").textContent = "Verifying game files";
-    $("stageInfo").textContent = "Checking package integrity...";
-    $("speed").textContent = "0.0 MB/s";
-    $("eta").textContent = "Verifying...";
-    $("status").textContent = "Validating gta7_pc_release.manifest...";
-    return;
-  }
-
-  $("stage").textContent = "Downloading game files";
-
-  // Display a slightly smoothed measurement of the latest transfer rate.
-  shownSpeed += (actualSpeed-shownSpeed)*random(.35,.7);
-  shownSpeed = Math.max(0,shownSpeed);
-  $("speed").textContent = shownSpeed.toFixed(1)+" MB/s";
-
-  const remainingMB = TOTAL_MB-downloadedMB;
-  const estimatedSpeed = Math.max(1,smoothedSpeed);
-  const etaSeconds = remainingMB/estimatedSpeed + 18;
-
-  $("eta").textContent = formatTime(etaSeconds);
-
-  const pct = fraction*100;
-
-  if (now < stallUntil && actualSpeed < 75) {
-    $("stageInfo").textContent = "Waiting for data...";
-    $("status").textContent = "Synchronizing transfer...";
-  } else if (pct < 15) {
-    $("stageInfo").textContent = "Receiving core archives...";
-    $("status").textContent = "gta7_core_01.pak";
-  } else if (pct < 38) {
-    $("stageInfo").textContent = "Receiving world data...";
-    $("status").textContent = "gta7_world_data_02.pak";
-  } else if (pct < 65) {
-    $("stageInfo").textContent = "Receiving HD textures...";
-    $("status").textContent = "gta7_textures_hd_03.pak";
-  } else if (pct < 86) {
-    $("stageInfo").textContent = "Receiving audio archives...";
-    $("status").textContent = "gta7_audio_04.pak";
-  } else {
-    $("stageInfo").textContent = "Receiving final package...";
-    $("status").textContent = "gta7_release_final.pkg";
-  }
-}
-
-function togglePause() {
-  if (!running) return;
-
-  paused = !paused;
-  lastTick = performance.now();
-
-  if (!paused) {
-    // Don't instantly schedule a speed change or a huge progress jump.
-    nextSpeedChange = lastTick+random(700,1900);
-    if (stallUntil > lastTick) stallUntil = lastTick;
-    if (state === "verifying") {
-      verifyStarted += lastTick-pauseStarted;
-    }
-  } else {
-    pauseStarted = lastTick;
-  }
-
-  $("pauseBtn").textContent = paused ? "RESUME" : "PAUSE";
-  nextDisplay = lastTick;
-  renderDownload(lastTick);
-}
-
-let pauseStarted = 0;
-
-function cancelDownload() {
-  running = false;
-  paused = false;
-  verifying = false;
-  state = "idle";
-
-  if (animationId !== null) cancelAnimationFrame(animationId);
-  animationId = null;
-
-  $("downloadUI").classList.add("hidden");
-  $("startUI").classList.remove("hidden");
-}
-
-function failDownload() {
-  running = false;
-  state = "failed";
-  animationId = null;
-
-  $("percentage").textContent = "99.9%";
-  $("progressBar").style.width = "99.9%";
-  $("stage").textContent = "Verification failed";
-  $("stageInfo").textContent = "Package validation unsuccessful";
-  $("speed").textContent = "0.0 MB/s";
-  $("eta").textContent = "Failed";
-  $("status").textContent = "Error: Invalid release manifest.";
-  $("pauseBtn").disabled = true;
-
-  const errors = [
-    ["GTA7-ERR-0x80070017","PACKAGE_INTEGRITY_FAILURE","gta7_pc_release.manifest"],
-    ["GTA7-ERR-0xC004F201","RELEASE_MANIFEST_MISSING","gta7_release_pc.pkg"],
-    ["GTA7-ERR-404-BUILD","RELEASE_NOT_FOUND","gta7_build_1.0.7.pkg"]
-  ];
-
-  const [code,reason,file] = errors[(attempts-1)%errors.length];
-
-  $("errorCode").textContent =
-    "Error code: "+code+"\n"+
-    "Reason: "+reason+"\n"+
-    "Package: "+file+"\n"+
-    "Verification status: FAILED";
-
-  $("errorOverlay").classList.remove("hidden");
-}
-
-function retryDownload(){startDownload()}
-function closeError(){$("errorOverlay").classList.add("hidden")}
-
-/* MODALS */
-
-const titles={
-  terms:"Terms of Service",
-  privacy:"Privacy Policy",
-  about:"About",
-  disclaimer:"Disclaimer"
 };
 
-function openModal(type){
-  if(!titles[type])return;
-  const template=$(type+"Template");
-  if(!template)return;
-
-  $("modalTitle").textContent=titles[type];
-  $("modalBody").replaceChildren(template.content.cloneNode(true));
-  $("infoOverlay").classList.remove("hidden");
-  $("infoOverlay").querySelector(".modal").scrollTop=0;
-  document.body.style.overflow="hidden";
+function showModal(key) {
+  const message = messages[key];
+  if (!message) return;
+  modalTitle.textContent = message.title;
+  modalText.textContent = message.text;
+  modal.showModal();
 }
 
-function closeModal(){
-  $("infoOverlay").classList.add("hidden");
-  document.body.style.overflow="";
-}
-
-$("infoOverlay").addEventListener("click",event=>{
-  if(event.target===$("infoOverlay"))closeModal();
+document.querySelectorAll("[data-modal]").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    showModal(link.dataset.modal);
+  });
 });
 
-$("errorOverlay").addEventListener("click",event=>{
-  if(event.target===$("errorOverlay"))closeError();
-});
+document.getElementById("premiumBtn").onclick = () =>
+  showModal("premium");
 
-document.addEventListener("keydown",event=>{
-  if(event.key==="Escape"){
-    closeModal();
-    closeError();
+document.getElementById("closeModal").onclick = () =>
+  modal.close();
+
+/*
+  Actual ZIP implementation.
+  No JSZip, CDN, backend or external libraries needed.
+  ZIP format uses STORE compression (no compression),
+  standard CRC-32 checksums and central directory records.
+*/
+
+const encoder = new TextEncoder();
+
+function crc32(bytes) {
+  let crc = 0xFFFFFFFF;
+
+  for (const byte of bytes) {
+    crc ^= byte;
+    for (let i = 0; i < 8; i++) {
+      crc = (crc >>> 1) ^
+        (crc & 1 ? 0xEDB88320 : 0);
+    }
   }
-});
+
+  return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+
+function makeZip(files) {
+  const localParts = [];
+  const centralParts = [];
+
+  let offset = 0;
+  let centralSize = 0;
+
+  for (const file of files) {
+    const name = encoder.encode(file.name);
+    const data = encoder.encode(file.content);
+    const checksum = crc32(data);
+
+    // Local file header
+    const local = new Uint8Array(30 + name.length);
+    const lv = new DataView(local.buffer);
+
+    lv.setUint32(0, 0x04034B50, true);
+    lv.setUint16(4, 20, true);
+    lv.setUint16(6, 0x0800, true); // UTF-8
+    lv.setUint16(8, 0, true);      // STORE
+    lv.setUint16(10, 0, true);
+    lv.setUint16(12, 0, true);
+    lv.setUint32(14, checksum, true);
+    lv.setUint32(18, data.length, true);
+    lv.setUint32(22, data.length, true);
+    lv.setUint16(26, name.length, true);
+    lv.setUint16(28, 0, true);
+    local.set(name, 30);
+
+    localParts.push(local, data);
+
+    // Central directory entry
+    const central = new Uint8Array(46 + name.length);
+    const cv = new DataView(central.buffer);
+
+    cv.setUint32(0, 0x02014B50, true);
+    cv.setUint16(4, 20, true);
+    cv.setUint16(6, 20, true);
+    cv.setUint16(8, 0x0800, true);
+    cv.setUint16(10, 0, true);
+    cv.setUint16(12, 0, true);
+    cv.setUint16(14, 0, true);
+    cv.setUint32(16, checksum, true);
+    cv.setUint32(20, data.length, true);
+    cv.setUint32(24, data.length, true);
+    cv.setUint16(28, name.length, true);
+    cv.setUint16(30, 0, true);
+    cv.setUint16(32, 0, true);
+    cv.setUint16(34, 0, true);
+    cv.setUint16(36, 0, true);
+    cv.setUint32(38, 0, true);
+    cv.setUint32(42, offset, true);
+    central.set(name, 46);
+
+    centralParts.push(central);
+
+    centralSize += central.length;
+    offset += local.length + data.length;
+  }
+
+  // End of central directory
+  const end = new Uint8Array(22);
+  const ev = new DataView(end.buffer);
+
+  ev.setUint32(0, 0x06054B50, true);
+  ev.setUint16(4, 0, true);
+  ev.setUint16(6, 0, true);
+  ev.setUint16(8, files.length, true);
+  ev.setUint16(10, files.length, true);
+  ev.setUint32(12, centralSize, true);
+  ev.setUint32(16, offset, true);
+  ev.setUint16(20, 0, true);
+
+  return new Blob(
+    [...localParts, ...centralParts, end],
+    { type: "application/zip" }
+  );
+}
+
+/*
+  The surprise file inside the ZIP.
+  Opening GTA7_LAUNCHER.html redirects to the Rickroll.
+  The fallback link allows manual playback.
+*/
+
+const launcherHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="2;url=https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+<title>GTA 7 Launcher</title>
+<style>
+body {
+  background: #090b10;
+  color: #edf1f7;
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin: 0;
+}
+.box { padding: 35px; }
+h1 { font-size: 28px; }
+p { color: #99a4b6; }
+a { color: #62e9a5; }
+.spinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #303745;
+  border-top-color: #62e9a5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 25px auto;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>GTA 7</h1>
+<div class="spinner"></div>
+<p>Initializing launcher...</p>
+<p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Continue manually</a></p>
+</div>
+</body>
+</html>`;
+
+const readme = `GTA 7 DOWNLOAD
+
+This is a harmless parody download.
+
+Open GTA7_LAUNCHER.html to launch the surprise.
+
+No game files or executable programs are included.
+`;
+
+function createArchive() {
+  return makeZip([
+    {
+      name: "GTA7_LAUNCHER.html",
+      content: launcherHTML
+    },
+    {
+      name: "README.txt",
+      content: readme
+    }
+  ]);
+}
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function setProgress(value, label, detail) {
+  fill.style.width = value + "%";
+  percentage.textContent = Math.round(value) + "%";
+  progressTitle.textContent = label;
+  speed.textContent = detail;
+}
+
+let downloading = false;
+
+async function startDownload() {
+  if (downloading) return;
+
+  downloading = true;
+  button.disabled = true;
+  button.textContent = "PREPARING DOWNLOAD...";
+  area.style.display = "block";
+
+  setProgress(0, "Connecting to mirror...", "Establishing session");
+  eta.textContent = "Please wait";
+  status.textContent = "";
+
+  try {
+    // Deliberately uneven preparation progress.
+    // This represents a UI countdown, not real network traffic.
+    const stages = [
+      [5, "Connecting to mirror...", "Resolving file", 750],
+      [12, "Authorizing request...", "Free access tier", 1000],
+      [18, "Preparing archive...", "Initializing", 900],
+      [26, "Preparing archive...", "Checking package", 1400],
+      [29, "Preparing archive...", "Checking package", 1700],
+      [43, "Packaging files...", "Processing", 700],
+      [57, "Packaging files...", "Processing", 1000],
+      [61, "Packaging files...", "Finalizing", 1200],
+      [74, "Verifying archive...", "Checking integrity", 950],
+      [83, "Verifying archive...", "Finalizing", 1100],
+      [94, "Preparing download...", "Almost ready", 800]
+    ];
+
+    for (const [progress, title, detail, ms] of stages) {
+      setProgress(progress, title, detail);
+      await delay(ms);
+    }
+
+    // Generate the real ZIP bytes.
+    const archive = createArchive();
+    const url = URL.createObjectURL(archive);
+
+    setProgress(100, "Download ready", "Archive created");
+    eta.textContent = "Ready";
+    status.style.color = "#62e9a5";
+    status.textContent = "Your ZIP download is starting.";
+
+    // Trigger a real browser file download.
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "GTA7_PC_DOWNLOAD.zip";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+
+    button.textContent = "DOWNLOAD AGAIN";
+  } catch (error) {
+    console.error(error);
+    status.style.color = "#ff9292";
+    status.textContent = "Could not prepare archive. Please retry.";
+    button.textContent = "RETRY DOWNLOAD";
+  } finally {
+    button.disabled = false;
+    downloading = false;
+  }
+}
+
+button.addEventListener("click", startDownload);
 </script>
 </body>
 </html>
