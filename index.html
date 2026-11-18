@@ -4,638 +4,449 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA 7 PC Download | VaultDrive</title>
-
+<meta name="theme-color" content="#0b0e14">
+<title>GTA 7 Download | PC Archive</title>
 <style>
-:root {
-  --bg: #090b10;
-  --panel: #11151d;
-  --panel2: #171c26;
-  --line: #272e3c;
-  --text: #edf1f7;
-  --muted: #8792a5;
-  --green: #62e9a5;
-  --green-dark: #113a2a;
-  --yellow: #edbd67;
+:root{
+  --bg:#0b0e14;--panel:#131821;--panel2:#1b222e;
+  --border:#2a3341;--text:#edf1f7;--muted:#95a0b1;
+  --green:#63e6a1;--red:#ff8585
 }
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  color: var(--text);
-  background: var(--bg);
-  font-family: Inter, system-ui, Arial, sans-serif;
-  font-size: 14px;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font:14px system-ui,-apple-system,Segoe UI,Arial,sans-serif
 }
-
-button { font: inherit; }
-
-header {
-  height: 72px;
-  background: #0e1118;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 max(24px, calc((100vw - 1080px) / 2));
+button,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+header{
+  background:#10151d;border-bottom:1px solid var(--border)
 }
-
-.logo {
-  font-size: 23px;
-  font-weight: 850;
-  letter-spacing: -1px;
+.top{
+  max-width:1080px;min-height:70px;margin:auto;padding:0 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px
 }
-
-.logo span { color: var(--green); }
-
-.header-right {
-  color: var(--muted);
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.brand{font-weight:850;font-size:23px;letter-spacing:-.8px}
+.brand span{color:var(--green)}
+nav{display:flex;gap:24px;color:var(--muted)}
+nav a{text-decoration:none;font-size:13px}
+nav a:hover{color:white}
+main{max-width:1080px;margin:40px auto;padding:0 20px}
+.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:22px}
+.breadcrumb b{color:#d2dbe8;font-weight:500}
+.layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 315px;gap:22px
 }
-
-.online-dot {
-  background: var(--green);
-  height: 7px;
-  width: 7px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #62e9a580;
+.card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;margin-bottom:20px;overflow:hidden
 }
-
-.container {
-  width: min(100% - 36px, 1040px);
-  margin: 45px auto;
+.pad{padding:26px}
+.file{display:flex;align-items:center;gap:20px}
+.zip{
+  flex:0 0 76px;height:90px;display:grid;place-items:center;
+  background:#1d3b30;border:1px solid #33654c;color:var(--green);
+  border-radius:11px;font-size:23px;font-weight:800
 }
-
-.breadcrumb {
-  color: var(--muted);
-  margin-bottom: 24px;
-  font-size: 12px;
+h1{font-size:24px;letter-spacing:-.6px;margin:0 0 9px;overflow-wrap:anywhere}
+h2{font-size:17px;margin:0 0 18px}
+p{line-height:1.8;color:var(--muted)}
+.meta{font-size:12px;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badge{
+  padding:6px 9px;font-size:11px;color:#aab8c9;
+  background:#222b37;border-radius:5px
 }
-
-.breadcrumb span { color: var(--green); }
-
-.layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 310px;
-  gap: 20px;
+.badge.green{background:#153d2c;color:var(--green)}
+hr{border:none;border-top:1px solid var(--border);margin:26px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr)}
+.stats small{
+  display:block;color:var(--muted);font-size:11px;margin-bottom:8px
 }
-
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 13px;
-  overflow: hidden;
-  margin-bottom: 20px;
+.stats strong{font-size:19px}
+.info{
+  display:flex;justify-content:space-between;gap:20px;
+  padding:14px 0;border-bottom:1px solid var(--border)
 }
-
-.panel-content { padding: 26px; }
-
-.file-top {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+.info:last-child{border-bottom:none}
+.info span:first-child{color:var(--muted)}
+.info span:last-child{text-align:right}
+.download-title{font-weight:750;font-size:17px}
+.download-desc{margin:12px 0 20px}
+.download{
+  width:100%;border:0;background:var(--green);color:#09271b;
+  border-radius:8px;font-weight:800;font-size:15px;
+  padding:18px;transition:.2s
 }
-
-.file-icon {
-  height: 88px;
-  width: 78px;
-  border-radius: 12px;
-  background: #253b34;
-  color: var(--green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 22px;
-  flex-shrink: 0;
-  border: 1px solid #365c48;
+.download:hover:not(:disabled){background:#8cf9bd}
+.download:disabled{opacity:.7;cursor:wait}
+.note{
+  font-size:11px;text-align:center;line-height:1.8;
+  color:#778496;margin-top:17px
 }
-
-h1 {
-  font-size: 23px;
-  margin: 0 0 9px;
-  overflow-wrap: anywhere;
+.status-box{
+  border:1px solid #28563c;background:#132a20;color:#8cebb2;
+  border-radius:8px;padding:12px;font-size:12px;margin-top:19px
 }
-
-.sub { color: var(--muted); font-size: 13px; }
-
-.tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 14px;
+.progress{display:none;margin-top:24px}
+.progress-top{
+  display:flex;justify-content:space-between;font-size:12px;gap:10px
 }
-
-.tag {
-  background: #1d2630;
-  color: #aebacf;
-  border-radius: 5px;
-  padding: 6px 9px;
-  font-size: 11px;
+.track{
+  background:#28313d;height:8px;border-radius:30px;
+  overflow:hidden;margin:12px 0
 }
-
-.tag.green {
-  background: var(--green-dark);
-  color: var(--green);
+.fill{
+  width:0%;height:100%;
+  background:linear-gradient(90deg,#269364,#70f0aa);
+  transition:width .65s ease
 }
-
-.rule {
-  height: 1px;
-  background: var(--line);
-  margin: 25px 0;
+.detail{color:var(--muted);font-size:12px}
+.download-result{margin-top:13px;font-size:12px;color:var(--green)}
+.side-heading{font-weight:750;margin-bottom:14px}
+.warning{
+  padding:15px;background:#292318;border:1px solid #5a4830;
+  color:#e5c88e;font-size:12px;line-height:1.7;border-radius:8px
 }
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+footer{
+  border-top:1px solid var(--border);text-align:center;
+  color:#8590a2;padding:30px 20px;font-size:12px;line-height:2.3
 }
-
-.stat-label {
-  color: var(--muted);
-  font-size: 11px;
-  margin-bottom: 8px;
+footer a{
+  color:#a7b3c4;text-decoration:none;margin:0 12px
 }
-
-.stat-value {
-  font-size: 19px;
-  font-weight: 750;
+footer a:hover{color:white}
+dialog{
+  width:min(460px,calc(100% - 30px));
+  border:1px solid #344153;background:#171e29;
+  color:white;border-radius:12px;padding:27px
 }
-
-.section-title {
-  font-size: 16px;
-  font-weight: 750;
-  margin-bottom: 20px;
+dialog::backdrop{background:#000b}
+dialog p{white-space:pre-line}
+.close{
+  background:var(--green);border:0;padding:12px 20px;
+  border-radius:7px;font-weight:700
 }
-
-.info-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  padding: 13px 0;
-  border-bottom: 1px solid var(--line);
+.lock-icon{
+  width:52px;height:52px;display:grid;place-items:center;
+  background:#183b2a;border:1px solid #32664a;
+  border-radius:12px;color:var(--green);font-size:24px;margin-bottom:18px
 }
-
-.info-row:last-child { border: none; }
-.info-label { color: var(--muted); }
-.info-value { text-align: right; }
-
-.download-heading {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-weight: 750;
-  font-size: 16px;
-  margin-bottom: 9px;
+.password-field{
+  width:100%;background:#0e131b;color:white;
+  border:1px solid #354052;border-radius:8px;
+  padding:15px;outline:none;margin:12px 0
 }
-
-.muted { color: var(--muted); line-height: 1.7; }
-
-.download-button {
-  margin-top: 21px;
-  width: 100%;
-  padding: 17px;
-  background: var(--green);
-  color: #062116;
-  border: 0;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 850;
-  cursor: pointer;
-  transition: background .2s, transform .2s;
+.password-field:focus{border-color:var(--green)}
+.password-field.invalid{border-color:var(--red)}
+.password-error{min-height:18px;color:var(--red);font-size:12px}
+.modal-actions{display:flex;gap:10px;margin-top:17px}
+.modal-actions button{
+  flex:1;padding:13px;border-radius:8px;font-weight:700
 }
-
-.download-button:hover:not(:disabled) {
-  background: #8affc2;
-  transform: translateY(-1px);
+.cancel{
+  background:#252e3b;color:#cbd5e1;border:1px solid #3a4555
 }
-
-.download-button:disabled {
-  cursor: wait;
-  opacity: .65;
-}
-
-.small-print {
-  color: #6d788c;
-  font-size: 11px;
-  margin-top: 17px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-.security {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  color: var(--green);
-  padding: 14px;
-  background: #10281e;
-  border: 1px solid #23533b;
-  border-radius: 8px;
-  margin-top: 19px;
-  font-size: 12px;
-}
-
-.promo {
-  padding: 20px;
-  background: linear-gradient(140deg,#1b2440,#121927);
-  border: 1px solid #354460;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-
-.promo h3 { margin-top: 0; }
-.promo p { color: #a0acc0; line-height: 1.7; }
-
-.promo button {
-  width: 100%;
-  padding: 12px;
-  background: transparent;
-  color: #cedbf0;
-  border: 1px solid #53617c;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.progress-area {
-  display: none;
-  margin-top: 24px;
-}
-
-.progress-track {
-  height: 9px;
-  background: #252d39;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 13px 0 10px;
-}
-
-.progress-fill {
-  background: linear-gradient(90deg,#228e60,#69f4ae);
-  height: 100%;
-  width: 0;
-  transition: width .6s ease;
-}
-
-.progress-details {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.status { margin-top: 12px; font-size: 12px; }
-
-.footer {
-  border-top: 1px solid var(--line);
-  padding: 29px 20px;
-  text-align: center;
-  color: #687387;
-  font-size: 12px;
-  line-height: 2;
-}
-
-.footer a {
-  color: #98a3b6;
-  text-decoration: none;
-  margin: 0 9px;
-}
-
-.footer a:hover { color: white; }
-
-dialog {
-  max-width: 460px;
-  width: calc(100% - 32px);
-  background: #151a24;
-  color: white;
-  border: 1px solid #364154;
-  border-radius: 12px;
-  padding: 27px;
-}
-
-dialog::backdrop { background: #000b; }
-
-dialog p {
-  color: #abb6c8;
-  line-height: 1.8;
-}
-
-.close-dialog {
-  background: var(--green);
-  border: 0;
-  padding: 12px 22px;
-  border-radius: 7px;
-  cursor: pointer;
-  font-weight: 750;
-}
-
-@media(max-width: 760px) {
-  .layout { grid-template-columns: 1fr; }
-  .file-top { align-items: flex-start; }
-  h1 { font-size: 19px; }
-  .container { margin-top: 25px; }
-  .panel-content { padding: 20px; }
-  .header-right { display: none; }
+.confirm{background:var(--green);color:#09271b;border:0}
+@media(max-width:750px){
+  .layout{grid-template-columns:1fr}
+  nav{gap:12px}
+  nav a{font-size:11px}
+  .pad{padding:20px}
+  h1{font-size:19px}
+  .file{align-items:flex-start}
+  .zip{flex-basis:65px;height:75px}
+  main{margin-top:25px}
 }
 </style>
 </head>
 
 <body>
-
 <header>
-  <div class="logo">vault<span>drive.</span></div>
-  <div class="header-right">
-    <div class="online-dot"></div>
-    FILE NETWORK ONLINE
+  <div class="top">
+    <div class="brand">GTA<span>7</span> Downloads</div>
+    <nav>
+      <a href="#file">Download</a>
+      <a href="#information">Information</a>
+      <a href="#" data-modal="about">About</a>
+    </nav>
   </div>
 </header>
 
-<main class="container">
+<main>
   <div class="breadcrumb">
-    Home / Public files / Games /
-    <span>GTA7_PC_DOWNLOAD.zip</span>
+    Home / Downloads / PC / <b>GTA7_PC_DOWNLOAD.zip</b>
   </div>
 
   <div class="layout">
     <div>
-      <section class="panel">
-        <div class="panel-content">
-          <div class="file-top">
-            <div class="file-icon">ZIP</div>
+      <section class="card" id="file">
+        <div class="pad">
+          <div class="file">
+            <div class="zip">ZIP</div>
             <div>
               <h1>GTA7_PC_DOWNLOAD.zip</h1>
-              <div class="sub">Uploaded by anonymous_user_2741</div>
-              <div class="tags">
-                <span class="tag green">PUBLIC FILE</span>
-                <span class="tag">ZIP ARCHIVE</span>
-                <span class="tag">PC / WINDOWS</span>
+              <div class="meta">Community download archive</div>
+              <div class="badges">
+                <span class="badge green">AVAILABLE</span>
+                <span class="badge">ZIP ARCHIVE</span>
+                <span class="badge">WINDOWS / PC</span>
               </div>
             </div>
           </div>
-
-          <div class="rule"></div>
-
+          <hr>
           <div class="stats">
+            <div><small>DOWNLOADS</small><strong>16</strong></div>
+            <div><small>FORMAT</small><strong>ZIP</strong></div>
             <div>
-              <div class="stat-label">DOWNLOADS</div>
-              <div class="stat-value">16</div>
-            </div>
-            <div>
-              <div class="stat-label">FILE SIZE</div>
-              <div class="stat-value">Variable</div>
-            </div>
-            <div>
-              <div class="stat-label">ACCESS</div>
-              <div class="stat-value" style="color:var(--green)">
-                Public
-              </div>
+              <small>ACCESS</small>
+              <strong style="color:var(--green)">Free</strong>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="panel">
-        <div class="panel-content">
-          <div class="section-title">File information</div>
-
-          <div class="info-row">
-            <div class="info-label">Filename</div>
-            <div class="info-value">GTA7_PC_DOWNLOAD.zip</div>
+      <section class="card" id="information">
+        <div class="pad">
+          <h2>File information</h2>
+          <div class="info">
+            <span>File name</span><span>GTA7_PC_DOWNLOAD.zip</span>
           </div>
-
-          <div class="info-row">
-            <div class="info-label">File type</div>
-            <div class="info-value">Compressed archive</div>
+          <div class="info">
+            <span>Archive type</span><span>ZIP</span>
           </div>
-
-          <div class="info-row">
-            <div class="info-label">Uploaded</div>
-            <div class="info-value">Recently</div>
+          <div class="info">
+            <span>Platform</span><span>Windows / PC</span>
           </div>
-
-          <div class="info-row">
-            <div class="info-label">Availability</div>
-            <div class="info-value" style="color:var(--green)">
-              Available
-            </div>
+          <div class="info">
+            <span>Download method</span><span>Direct download</span>
           </div>
-
-          <div class="info-row">
-            <div class="info-label">Mirror</div>
-            <div class="info-value">EU-West-03</div>
+          <div class="info">
+            <span>File password</span><span>None</span>
           </div>
-
-          <div class="info-row">
-            <div class="info-label">Password</div>
-            <div class="info-value">Not required</div>
+          <div class="info">
+            <span>Access</span><span>Password required</span>
           </div>
         </div>
       </section>
 
-      <section class="panel">
-        <div class="panel-content">
-          <div class="section-title">Uploader description</div>
-          <p class="muted">
-            GTA 7 PC download. Files packaged for convenient
-            distribution. Extract the archive and open the
-            included launcher file.
+      <section class="card">
+        <div class="pad">
+          <h2>Download information</h2>
+          <p>
+            This page provides access to the GTA7_PC_DOWNLOAD.zip
+            archive. Enter the access password to begin preparing
+            your download.
           </p>
-          <p class="muted">
-            No additional installation utilities are required.
-            Download access provided through the public mirror.
+          <p>
+            Once downloaded, extract the archive and open the
+            included HTML launcher.
+          </p>
+          <p>
+            This is a community parody download. No official
+            GTA game files are included.
           </p>
         </div>
       </section>
     </div>
 
     <aside>
-      <section class="panel">
-        <div class="panel-content">
-          <div class="download-heading">
-            <span style="color:var(--green)">⬇</span>
-            Download file
-          </div>
+      <section class="card">
+        <div class="pad">
+          <div class="download-title">Download archive</div>
+          <p class="download-desc">
+            This download requires an access password.
+          </p>
 
-          <div class="muted">
-            Your file is ready to be prepared for download.
-            Please use the button below.
-          </div>
-
-          <button class="download-button" id="downloadBtn">
-            FREE DOWNLOAD
+          <button class="download" id="downloadBtn">
+            ↓ FREE DOWNLOAD
           </button>
 
-          <div class="progress-area" id="progressArea">
-            <div class="progress-details">
-              <span id="progressTitle">Connecting...</span>
-              <span id="percentage">0%</span>
+          <div class="progress" id="progress">
+            <div class="progress-top">
+              <span id="stage">Preparing...</span>
+              <span id="percent">0%</span>
             </div>
-
-            <div class="progress-track">
-              <div class="progress-fill" id="progressFill"></div>
+            <div class="track">
+              <div class="fill" id="fill"></div>
             </div>
-
-            <div class="progress-details">
-              <span id="speed">Initializing</span>
-              <span id="eta">--</span>
-            </div>
-
-            <div class="status" id="status"></div>
+            <div class="detail" id="detail">Initializing...</div>
+            <div class="download-result" id="result"></div>
           </div>
 
-          <div class="security">
-            <span>●</span>
-            Encrypted connection · HTTPS
+          <div class="status-box">
+            ● Download service available
           </div>
-
-          <div class="small-print">
-            By downloading this file, you agree to the
-            VaultDrive Terms of Service.
+          <div class="note">
+            No account required.<br>
+            Access password must be provided by the file owner.
             <br>
-            User-uploaded content is not verified by VaultDrive.
+            <a href="#" data-modal="terms">Terms of Service</a>
           </div>
         </div>
       </section>
 
-      <div class="promo">
-        <h3>VaultDrive PREMIUM</h3>
-        <p>
-          Skip waiting times, unlock priority mirrors,
-          and get unlimited bandwidth.
-        </p>
-        <button id="premiumBtn">UPGRADE ACCOUNT</button>
+      <section class="card">
+        <div class="pad">
+          <div class="side-heading">Archive contents</div>
+          <div class="info"><span>Files</span><span>2</span></div>
+          <div class="info"><span>Launcher</span><span>HTML</span></div>
+          <div class="info"><span>Instructions</span><span>TXT</span></div>
+          <div class="info">
+            <span>Executable files</span><span>None</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="warning">
+        <strong>Notice</strong>
+        <div>
+          This archive is user-created content and is not
+          affiliated with Rockstar Games or Take-Two Interactive.
+        </div>
       </div>
-
-      <section class="panel">
-        <div class="panel-content">
-          <div class="section-title">Mirror information</div>
-          <div class="info-row">
-            <span class="info-label">Region</span>
-            <span>Europe</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Status</span>
-            <span style="color:var(--green)">Operational</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Access tier</span>
-            <span>Free</span>
-          </div>
-        </div>
-      </section>
     </aside>
   </div>
 </main>
 
-<footer class="footer">
+<footer>
   <div>
+    <a href="#" data-modal="about">About</a>
     <a href="#" data-modal="terms">Terms of Service</a>
-    <a href="#" data-modal="privacy">Privacy Policy</a>
-    <a href="#" data-modal="support">Support Center</a>
-    <a href="#" data-modal="abuse">Report File</a>
+    <a href="#" data-modal="privacy">Privacy</a>
+    <a href="#" data-modal="support">Support</a>
   </div>
-  <div>© 2026 VaultDrive. Independent parody file-sharing page.</div>
+  <div>© 2026 GTA7 Downloads · Community parody project</div>
 </footer>
 
-<dialog id="modal">
-  <h2 id="modalTitle"></h2>
-  <p id="modalText"></p>
-  <button class="close-dialog" id="closeModal">Close</button>
+<!-- Download access dialog -->
+<dialog id="accessDialog">
+  <div class="lock-icon">🔒</div>
+  <h2>Download access required</h2>
+  <p>
+    This file has restricted download access.
+    Enter the password provided by the file owner to continue.
+  </p>
+  <form id="accessForm">
+    <input
+      class="password-field"
+      type="password"
+      id="accessInput"
+      placeholder="Enter access password"
+      autocomplete="off"
+      required
+    >
+    <div class="password-error" id="accessError"></div>
+    <div class="modal-actions">
+      <button type="button" class="cancel" id="cancelAccess">
+        Cancel
+      </button>
+      <button type="submit" class="confirm">
+        Unlock download
+      </button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Information dialog -->
+<dialog id="infoDialog">
+  <h2 id="dialogTitle"></h2>
+  <p id="dialogText"></p>
+  <button class="close" id="closeDialog">Close</button>
 </dialog>
 
 <script>
 "use strict";
 
-const button = document.getElementById("downloadBtn");
-const area = document.getElementById("progressArea");
-const fill = document.getElementById("progressFill");
-const percentage = document.getElementById("percentage");
-const progressTitle = document.getElementById("progressTitle");
-const speed = document.getElementById("speed");
-const eta = document.getElementById("eta");
-const status = document.getElementById("status");
+const $ = id => document.getElementById(id);
 
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalText = document.getElementById("modalText");
-
-const messages = {
-  terms: {
-    title: "Terms of Service",
-    text: "This is a fictional file-hosting website made as a harmless prank. No game software is distributed. All downloaded content is a Rickroll surprise. Downloads are created locally in your browser."
-  },
-  privacy: {
-    title: "Privacy Policy",
-    text: "This static website does not collect personal information or upload files to a server. The archive is generated in your browser. Your web host may maintain ordinary server logs."
-  },
-  support: {
-    title: "Support Center",
-    text: "No."
-  },
-  abuse: {
-    title: "Report File",
-    text: "This website distributes a harmless joke archive, not an actual copy of GTA 7. No report submission service is connected."
-  },
-  premium: {
-    title: "Premium unavailable",
-    text: "Premium registration is currently unavailable. Free download access remains available."
-  }
+const dialogContent = {
+  about: [
+    "About",
+    "GTA7 Downloads is an independent parody download page. It is not an official game distributor."
+  ],
+  terms: [
+    "Terms of Service",
+    "1. This website is a parody project.\n\n2. The archive contains a harmless entertainment surprise, not the advertised game.\n\n3. No warranties are provided regarding availability.\n\n4. No official Rockstar Games or Take-Two content is distributed.\n\n5. You may download and inspect the included files."
+  ],
+  privacy: [
+    "Privacy Policy",
+    "This website does not request account credentials or transmit the download password to a server. Password checking and ZIP creation occur locally in your browser.\n\nGitHub Pages may process ordinary connection information under its own privacy policies."
+  ],
+  support: ["Support", "No."]
 };
-
-function showModal(key) {
-  const message = messages[key];
-  if (!message) return;
-  modalTitle.textContent = message.title;
-  modalText.textContent = message.text;
-  modal.showModal();
-}
 
 document.querySelectorAll("[data-modal]").forEach(link => {
   link.addEventListener("click", event => {
     event.preventDefault();
-    showModal(link.dataset.modal);
+    const item = dialogContent[link.dataset.modal];
+    if (!item) return;
+    $("dialogTitle").textContent = item[0];
+    $("dialogText").textContent = item[1];
+    $("infoDialog").showModal();
   });
 });
 
-document.getElementById("premiumBtn").onclick = () =>
-  showModal("premium");
+$("closeDialog").onclick = () => $("infoDialog").close();
 
-document.getElementById("closeModal").onclick = () =>
-  modal.close();
+/* Access configuration */
 
-/*
-  Actual ZIP implementation.
-  No JSZip, CDN, backend or external libraries needed.
-  ZIP format uses STORE compression (no compression),
-  standard CRC-32 checksums and central directory records.
-*/
+const marigold = [75,55,64,109,81,50,33,122];
+
+const accessDialog = $("accessDialog");
+const accessInput = $("accessInput");
+const accessError = $("accessError");
+
+$("downloadBtn").addEventListener("click", () => {
+  if ($("downloadBtn").disabled) return;
+  accessInput.value = "";
+  accessInput.classList.remove("invalid");
+  accessError.textContent = "";
+  accessDialog.showModal();
+  accessInput.focus();
+});
+
+$("cancelAccess").onclick = () => accessDialog.close();
+
+$("accessForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const entered = accessInput.value;
+  const expected = String.fromCharCode(...marigold);
+
+  if (entered !== expected) {
+    accessInput.classList.add("invalid");
+    accessError.textContent = "Incorrect password. Please try again.";
+    accessInput.value = "";
+    accessInput.focus();
+    return;
+  }
+
+  accessDialog.close();
+  startDownload();
+});
+
+/* ZIP archive generation */
 
 const encoder = new TextEncoder();
 
 function crc32(bytes) {
   let crc = 0xFFFFFFFF;
-
   for (const byte of bytes) {
     crc ^= byte;
     for (let i = 0; i < 8; i++) {
       crc = (crc >>> 1) ^
-        (crc & 1 ? 0xEDB88320 : 0);
+        ((crc & 1) ? 0xEDB88320 : 0);
     }
   }
-
   return (crc ^ 0xFFFFFFFF) >>> 0;
 }
 
 function makeZip(files) {
   const localParts = [];
   const centralParts = [];
-
   let offset = 0;
   let centralSize = 0;
 
@@ -644,26 +455,21 @@ function makeZip(files) {
     const data = encoder.encode(file.content);
     const checksum = crc32(data);
 
-    // Local file header
     const local = new Uint8Array(30 + name.length);
     const lv = new DataView(local.buffer);
 
     lv.setUint32(0, 0x04034B50, true);
     lv.setUint16(4, 20, true);
-    lv.setUint16(6, 0x0800, true); // UTF-8
-    lv.setUint16(8, 0, true);      // STORE
-    lv.setUint16(10, 0, true);
-    lv.setUint16(12, 0, true);
+    lv.setUint16(6, 0x0800, true);
+    lv.setUint16(8, 0, true);
     lv.setUint32(14, checksum, true);
     lv.setUint32(18, data.length, true);
     lv.setUint32(22, data.length, true);
     lv.setUint16(26, name.length, true);
-    lv.setUint16(28, 0, true);
     local.set(name, 30);
 
     localParts.push(local, data);
 
-    // Central directory entry
     const central = new Uint8Array(46 + name.length);
     const cv = new DataView(central.buffer);
 
@@ -671,53 +477,33 @@ function makeZip(files) {
     cv.setUint16(4, 20, true);
     cv.setUint16(6, 20, true);
     cv.setUint16(8, 0x0800, true);
-    cv.setUint16(10, 0, true);
-    cv.setUint16(12, 0, true);
-    cv.setUint16(14, 0, true);
     cv.setUint32(16, checksum, true);
     cv.setUint32(20, data.length, true);
     cv.setUint32(24, data.length, true);
     cv.setUint16(28, name.length, true);
-    cv.setUint16(30, 0, true);
-    cv.setUint16(32, 0, true);
-    cv.setUint16(34, 0, true);
-    cv.setUint16(36, 0, true);
-    cv.setUint32(38, 0, true);
     cv.setUint32(42, offset, true);
     central.set(name, 46);
 
     centralParts.push(central);
-
     centralSize += central.length;
     offset += local.length + data.length;
   }
 
-  // End of central directory
   const end = new Uint8Array(22);
   const ev = new DataView(end.buffer);
-
   ev.setUint32(0, 0x06054B50, true);
-  ev.setUint16(4, 0, true);
-  ev.setUint16(6, 0, true);
   ev.setUint16(8, files.length, true);
   ev.setUint16(10, files.length, true);
   ev.setUint32(12, centralSize, true);
   ev.setUint32(16, offset, true);
-  ev.setUint16(20, 0, true);
 
   return new Blob(
     [...localParts, ...centralParts, end],
-    { type: "application/zip" }
+    {type:"application/zip"}
   );
 }
 
-/*
-  The surprise file inside the ZIP.
-  Opening GTA7_LAUNCHER.html redirects to the Rickroll.
-  The fallback link allows manual playback.
-*/
-
-const launcherHTML = `<!DOCTYPE html>
+const launcher = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -725,36 +511,24 @@ const launcherHTML = `<!DOCTYPE html>
 <meta http-equiv="refresh" content="2;url=https://www.youtube.com/watch?v=dQw4w9WgXcQ">
 <title>GTA 7 Launcher</title>
 <style>
-body {
-  background: #090b10;
-  color: #edf1f7;
-  font-family: system-ui, sans-serif;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  margin: 0;
+body{
+  background:#0b0e14;color:white;font-family:system-ui;
+  display:grid;place-items:center;min-height:100vh;
+  text-align:center;margin:0
 }
-.box { padding: 35px; }
-h1 { font-size: 28px; }
-p { color: #99a4b6; }
-a { color: #62e9a5; }
-.spinner {
-  width: 38px;
-  height: 38px;
-  border: 4px solid #303745;
-  border-top-color: #62e9a5;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 25px auto;
+h1{font-size:32px}
+p{color:#aab4c3}
+a{color:#63e6a1}
+.spinner{
+  width:40px;height:40px;border:4px solid #303745;
+  border-top-color:#63e6a1;border-radius:50%;
+  animation:spin 1s linear infinite;margin:25px auto
 }
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
-<div class="box">
+<div>
 <h1>GTA 7</h1>
 <div class="spinner"></div>
 <p>Initializing launcher...</p>
@@ -765,83 +539,68 @@ a { color: #62e9a5; }
 
 const readme = `GTA 7 DOWNLOAD
 
-This is a harmless parody download.
+This archive is a harmless parody.
 
 Open GTA7_LAUNCHER.html to launch the surprise.
 
-No game files or executable programs are included.
+No game software or executable programs are included.
 `;
 
 function createArchive() {
   return makeZip([
-    {
-      name: "GTA7_LAUNCHER.html",
-      content: launcherHTML
-    },
-    {
-      name: "README.txt",
-      content: readme
-    }
+    {name:"GTA7_LAUNCHER.html",content:launcher},
+    {name:"README.txt",content:readme}
   ]);
 }
 
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+/* Download preparation */
+
+const delay = ms => new Promise(resolve => setTimeout(resolve,ms));
+
+function updateProgress(value, title, detail) {
+  $("fill").style.width = value + "%";
+  $("percent").textContent = value + "%";
+  $("stage").textContent = title;
+  $("detail").textContent = detail;
 }
 
-function setProgress(value, label, detail) {
-  fill.style.width = value + "%";
-  percentage.textContent = Math.round(value) + "%";
-  progressTitle.textContent = label;
-  speed.textContent = detail;
-}
-
-let downloading = false;
+let busy = false;
 
 async function startDownload() {
-  if (downloading) return;
+  if (busy) return;
+  busy = true;
 
-  downloading = true;
+  const button = $("downloadBtn");
   button.disabled = true;
   button.textContent = "PREPARING DOWNLOAD...";
-  area.style.display = "block";
+  $("progress").style.display = "block";
+  $("result").textContent = "";
 
-  setProgress(0, "Connecting to mirror...", "Establishing session");
-  eta.textContent = "Please wait";
-  status.textContent = "";
+  const stages = [
+    [4,"Initializing download...","Preparing session",600],
+    [11,"Checking access...","Access granted",850],
+    [19,"Preparing archive...","Initializing",950],
+    [27,"Preparing archive...","Processing",1100],
+    [32,"Preparing archive...","Processing",1500],
+    [46,"Packaging files...","Working",800],
+    [58,"Packaging files...","Working",1050],
+    [64,"Packaging files...","Finalizing",1400],
+    [78,"Verifying archive...","Checking integrity",1000],
+    [87,"Preparing download...","Almost ready",900],
+    [96,"Preparing download...","Finalizing",700]
+  ];
 
   try {
-    // Deliberately uneven preparation progress.
-    // This represents a UI countdown, not real network traffic.
-    const stages = [
-      [5, "Connecting to mirror...", "Resolving file", 750],
-      [12, "Authorizing request...", "Free access tier", 1000],
-      [18, "Preparing archive...", "Initializing", 900],
-      [26, "Preparing archive...", "Checking package", 1400],
-      [29, "Preparing archive...", "Checking package", 1700],
-      [43, "Packaging files...", "Processing", 700],
-      [57, "Packaging files...", "Processing", 1000],
-      [61, "Packaging files...", "Finalizing", 1200],
-      [74, "Verifying archive...", "Checking integrity", 950],
-      [83, "Verifying archive...", "Finalizing", 1100],
-      [94, "Preparing download...", "Almost ready", 800]
-    ];
-
-    for (const [progress, title, detail, ms] of stages) {
-      setProgress(progress, title, detail);
+    for (const [value,title,detail,ms] of stages) {
+      updateProgress(value,title,detail);
       await delay(ms);
     }
 
-    // Generate the real ZIP bytes.
     const archive = createArchive();
     const url = URL.createObjectURL(archive);
 
-    setProgress(100, "Download ready", "Archive created");
-    eta.textContent = "Ready";
-    status.style.color = "#62e9a5";
-    status.textContent = "Your ZIP download is starting.";
+    updateProgress(100,"Download ready","Completed");
 
-    // Trigger a real browser file download.
     const link = document.createElement("a");
     link.href = url;
     link.download = "GTA7_PC_DOWNLOAD.zip";
@@ -849,21 +608,19 @@ async function startDownload() {
     link.click();
     link.remove();
 
-    setTimeout(() => URL.revokeObjectURL(url), 60000);
+    setTimeout(() => URL.revokeObjectURL(url),60000);
 
+    $("result").textContent = "Download started successfully.";
     button.textContent = "DOWNLOAD AGAIN";
   } catch (error) {
     console.error(error);
-    status.style.color = "#ff9292";
-    status.textContent = "Could not prepare archive. Please retry.";
+    $("result").textContent = "Download failed. Please retry.";
     button.textContent = "RETRY DOWNLOAD";
   } finally {
     button.disabled = false;
-    downloading = false;
+    busy = false;
   }
 }
-
-button.addEventListener("click", startDownload);
 </script>
 </body>
 </html>
